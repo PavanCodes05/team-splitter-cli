@@ -4,7 +4,7 @@ import pandas
 from collections import defaultdict
 
 # Read The CSV file
-df_old = pandas.read_csv('mock.csv', usecols=['Full Name', 'Academic Year'])
+df_old = pandas.read_csv('original.csv', usecols=['Full Name', 'Academic Year'])
 df = df_old.rename(columns={'Full Name': 'full_name', 'Academic Year': 'academic_year'})
 
 # Split Suggestion
@@ -36,7 +36,7 @@ while True:
 team_size = (member_size // split_size)
 
 team_split_info = defaultdict(list)
-picked = set(range(0, 20))
+picked = set(range(0, member_size))
 
 current_team = 1
 while current_team <= split_size:
