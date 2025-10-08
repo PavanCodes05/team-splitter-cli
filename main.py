@@ -19,11 +19,12 @@ for size in range(1, member_size):
     if member_size % size == 0:
         senior_split = (member_size / size)
         if senior_split <= no_of_seniors:
-            print(size, end='\n')
+            print(size, end=' ')
+print("\n")
 
 # Random Pick Logic
 # Get Input From User
-split_size = 4
+split_size = 4 # Indicates total number of team
 team_size = (member_size // split_size)
 
 team_split_info = defaultdict(list)
@@ -40,4 +41,9 @@ while current_team <= split_size:
 
     current_team += 1
 
-print(team_split_info)
+# Return Back The Team List
+for key in team_split_info:
+    print(f"\nTEAM {key}\t")
+
+    for name, year in team_split_info[key]:
+        print(f"Name: {name} - Year: {year}")
