@@ -4,7 +4,7 @@ import pandas
 from collections import defaultdict
 
 # Read The CSV file
-df_old = pandas.read_csv('original.csv', usecols=['Full Name', 'Academic Year'])
+df_old = pandas.read_csv('original_data.csv', usecols=['Full Name', 'Academic Year'])
 df = df_old.rename(columns={'Full Name': 'full_name', 'Academic Year': 'academic_year'})
 
 # Split Suggestion
@@ -12,17 +12,17 @@ member_size = len(df)
 print("Total Members: ", member_size)
 
 yearwise_count = df['academic_year'].value_counts()
-no_of_seniors = yearwise_count['III']
+#no_of_seniors = yearwise_count['III']
 
 suggested_sizes = set()
 
 print("----- Suggested Number Of Teams -----")
 for size in range(1, member_size):
     if member_size % size == 0:
-        senior_split = (member_size / size)
-        if senior_split <= no_of_seniors:
-            suggested_sizes.add(size)
-            print(size, end=' ')
+       # senior_split = (member_size / size)
+        #if senior_split <= no_of_seniors:
+        suggested_sizes.add(size)
+        print(size, end=' ')
 print("\n")
 
 # Random Pick Logic
